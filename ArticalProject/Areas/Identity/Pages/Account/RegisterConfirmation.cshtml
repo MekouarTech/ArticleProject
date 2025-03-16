@@ -1,0 +1,22 @@
+﻿@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "تأكيد التسجيل";
+}
+
+<h1 style="font-family: Cairo;direction:rtl;">@ViewData["Title"]</h1>
+@{
+    if (@Model.DisplayConfirmAccountLink)
+    {
+        <p style="font-family: Cairo;direction:rtl;">
+            <a id="confirm-link" href="@Model.EmailConfirmationUrl">انقر هنا لتأكيد حسابك</a>
+</p>
+    }
+    else
+    {
+        <p style="font-family: Cairo;direction:rtl;">
+            يرجى التحقق من بريدك الإلكتروني لتأكيد حسابك.
+</p>
+    }
+}
+

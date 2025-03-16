@@ -1,0 +1,51 @@
+﻿@model ArticalProject.CoreView.AuthorPostView
+@inject ArticalProject.Data.IDataHelper<ArticalProject.Core.Category> datahelper
+@{
+    ViewData["Title"] = "إنشاء مشاركة جديدة";
+    Layout = "~/Pages/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1 style="font-family: Cairo;direction:rtl;">إنشاء مشاركة جديدة</h1>
+
+<h4 style="font-family: Cairo;direction:rtl;">معلومات المشاركة</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+            <div class="form-group">
+                <label asp-for="PostCategory" class="control-label"></label>
+                <select asp-for="PostCategory" asp-items="new SelectList(datahelper.GetAllData().Select(x=>x.Name))" class="form-control"></select>
+                <span asp-validation-for="PostCategory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostTitle" class="control-label"></label>
+                <input asp-for="PostTitle" class="form-control" />
+                <span asp-validation-for="PostTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostDecription" class="control-label"></label>
+                <textarea asp-for="PostDecription" class="form-control"></textarea>
+                <span asp-validation-for="PostDecription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostImageURL" class="control-label"></label>
+                <input asp-for="PostImageURL" type="file" class="form-control" />
+                <span asp-validation-for="PostImageURL" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="إنشاء" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">العودة إلى القائمة</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

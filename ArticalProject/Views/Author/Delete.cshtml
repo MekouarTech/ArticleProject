@@ -1,0 +1,70 @@
+﻿@model ArticalProject.Core.Author
+
+@{
+    ViewData["Title"] = "حذف";
+    Layout = "~/Pages/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1 style="font-family: Cairo;direction:rtl;">حذف المؤلف</h1>
+
+<h3 style="font-family: Cairo;direction:rtl;">هل أنت متأكد أنك تريد حذف هذا المؤلف؟</h3>
+<div>
+    <h4>المؤلف</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ProfileImageURL)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ProfileImageURL)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Bio)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Bio)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Facebook)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Facebook)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Instagram)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Instagram)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Twitter)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Twitter)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="حذف" class="btn btn-danger" /> |
+        <a asp-action="Index">العودة إلى القائمة</a>
+    </form>
+</div>
